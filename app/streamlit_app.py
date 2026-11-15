@@ -30,7 +30,7 @@ st.set_page_config(page_title="UDC Restoration — LPUDC + AMFM", layout="wide")
 def load_models():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     models = {}
-    for name in ("amfm_final", "dgf_final", "abl_amfm", "abl_dgf"):
+    for name in ("amfm_warm", "dgf_cont"):
         path = ROOT / "outputs" / "checkpoints" / name / "best_psnr.pth"
         if path.exists():
             state = torch.load(path, map_location="cpu")
