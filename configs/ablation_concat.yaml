@@ -1,0 +1,30 @@
+seed: 42
+data:
+  train_root: D:/UDC_AMFM_Project/data/Train
+  mat_root: D:/UDC_AMFM_Project/data
+  crop_cache: D:/UDC_AMFM_Project/data/cache/crops_256.npy
+  train_datasets: [Poled, Toled]
+  eval_datasets: [poled, toled]
+  crop: 256
+  val_crop: [256, 512]
+  augment: true
+model:
+  width: 48
+  levels: 3
+  fusion: concat
+  num_drb: 2
+train:
+  batch_size: 4
+  iterations: 4000
+  lr: 0.0002
+  min_lr: 0.000001
+  warmup: 250
+  weight_decay: 0.0
+  amp: true
+  num_workers: 2
+  val_every: 1500
+  log_every: 100
+  grad_clip: 1.0
+  lambda_pyramid: 0.5
+output:
+  root: D:/UDC_AMFM_Project/outputs
